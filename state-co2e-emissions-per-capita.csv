@@ -1,0 +1,225 @@
+Year,State,CO2 Emissions per Capita
+1990,New South Wales,29.90245
+1991,New South Wales,27.27319
+1992,New South Wales,24.85577
+1993,New South Wales,23.19789
+1994,New South Wales,22.90543
+1995,New South Wales,21.37243
+1996,New South Wales,21.30754
+1997,New South Wales,22.00154
+1998,New South Wales,20.99939
+1999,New South Wales,21.08283
+2000,New South Wales,22.68838
+2001,New South Wales,23.18191
+2002,New South Wales,22.74469
+2003,New South Wales,22.49951
+2004,New South Wales,23.31004
+2005,New South Wales,24.00722
+2006,New South Wales,24.08375
+2007,New South Wales,24.34668
+2008,New South Wales,23.73149
+2009,New South Wales,22.33427
+2010,New South Wales,20.78852
+2011,New South Wales,20.88433
+2012,New South Wales,20.55523
+2013,New South Wales,19.09526
+2014,New South Wales,18.74328
+2015,New South Wales,17.68878
+2016,New South Wales,17.13453
+2017,New South Wales,16.70929
+1990,Victoria,24.67636
+1991,Victoria,24.54215
+1992,Victoria,23.27194
+1993,Victoria,23.15025
+1994,Victoria,22.46852
+1995,Victoria,22.41616
+1996,Victoria,22.15854
+1997,Victoria,22.58250
+1998,Victoria,23.35286
+1999,Victoria,23.69422
+2000,Victoria,23.94344
+2001,Victoria,24.50590
+2002,Victoria,22.88321
+2003,Victoria,24.36619
+2004,Victoria,25.38019
+2005,Victoria,24.63696
+2006,Victoria,25.23370
+2007,Victoria,24.95621
+2008,Victoria,23.83947
+2009,Victoria,24.87435
+2010,Victoria,24.29238
+2011,Victoria,24.27188
+2012,Victoria,22.50049
+2013,Victoria,19.87227
+2014,Victoria,19.34438
+2015,Victoria,19.28060
+2016,Victoria,18.03386
+2017,Victoria,17.44794
+1990,Queensland,63.02459
+1991,Queensland,59.55582
+1992,Queensland,49.78709
+1993,Queensland,46.15829
+1994,Queensland,42.92647
+1995,Queensland,40.72078
+1996,Queensland,40.59270
+1997,Queensland,39.90070
+1998,Queensland,40.04321
+1999,Queensland,43.35880
+2000,Queensland,42.90595
+2001,Queensland,46.99460
+2002,Queensland,47.25917
+2003,Queensland,44.03359
+2004,Queensland,43.48310
+2005,Queensland,47.70411
+2006,Queensland,45.22163
+2007,Queensland,45.09469
+2008,Queensland,43.13075
+2009,Queensland,40.06524
+2010,Queensland,38.89768
+2011,Queensland,35.67414
+2012,Queensland,35.76816
+2013,Queensland,34.35233
+2014,Queensland,32.98670
+2015,Queensland,33.08323
+2016,Queensland,32.64874
+2017,Queensland,32.77811
+1990,South Australia,25.16941
+1991,South Australia,20.68257
+1992,South Australia,19.47475
+1993,South Australia,20.07444
+1994,South Australia,18.69590
+1995,South Australia,17.32512
+1996,South Australia,17.51361
+1997,South Australia,18.05107
+1998,South Australia,17.87878
+1999,South Australia,18.43830
+2000,South Australia,17.64194
+2001,South Australia,19.12042
+2002,South Australia,19.79600
+2003,South Australia,20.55521
+2004,South Australia,20.26672
+2005,South Australia,22.76714
+2006,South Australia,22.13098
+2007,South Australia,23.48516
+2008,South Australia,21.19075
+2009,South Australia,19.03130
+2010,South Australia,16.07569
+2011,South Australia,14.60450
+2012,South Australia,15.73557
+2013,South Australia,15.70992
+2014,South Australia,17.08916
+2015,South Australia,16.30692
+2016,South Australia,14.04386
+2017,South Australia,12.81184
+1990,Western Australia,43.80632
+1991,Western Australia,43.15775
+1992,Western Australia,36.83148
+1993,Western Australia,35.06932
+1994,Western Australia,36.42238
+1995,Western Australia,34.71134
+1996,Western Australia,35.25528
+1997,Western Australia,37.08238
+1998,Western Australia,33.15398
+1999,Western Australia,31.52946
+2000,Western Australia,31.20607
+2001,Western Australia,32.14777
+2002,Western Australia,32.83362
+2003,Western Australia,35.25418
+2004,Western Australia,34.02801
+2005,Western Australia,35.66656
+2006,Western Australia,34.68989
+2007,Western Australia,36.14812
+2008,Western Australia,34.35145
+2009,Western Australia,35.27916
+2010,Western Australia,33.57497
+2011,Western Australia,30.64081
+2012,Western Australia,30.50584
+2013,Western Australia,31.36339
+2014,Western Australia,30.89588
+2015,Western Australia,31.57594
+2016,Western Australia,33.65486
+2017,Western Australia,34.38649
+1990,Tasmania,40.27052
+1991,Tasmania,45.56320
+1992,Tasmania,34.83089
+1993,Tasmania,36.00418
+1994,Tasmania,33.59483
+1995,Tasmania,34.36835
+1996,Tasmania,35.04718
+1997,Tasmania,30.65517
+1998,Tasmania,40.51752
+1999,Tasmania,33.28559
+2000,Tasmania,39.21416
+2001,Tasmania,42.70330
+2002,Tasmania,38.45604
+2003,Tasmania,47.32659
+2004,Tasmania,41.66000
+2005,Tasmania,37.18339
+2006,Tasmania,34.97511
+2007,Tasmania,28.54809
+2008,Tasmania,32.91257
+2009,Tasmania,30.92684
+2010,Tasmania,25.70678
+2011,Tasmania,22.00028
+2012,Tasmania,7.16095
+2013,Tasmania,2.08481
+2014,Tasmania,1.57664
+2015,Tasmania,0.33439
+2016,Tasmania,0.00000
+2017,Tasmania,1.66225
+1990,Northern Territory,78.84148
+1991,Northern Territory,84.81958
+1992,Northern Territory,74.53266
+1993,Northern Territory,69.74488
+1994,Northern Territory,74.80148
+1995,Northern Territory,87.30864
+1996,Northern Territory,86.78479
+1997,Northern Territory,83.54431
+1998,Northern Territory,93.14589
+1999,Northern Territory,95.23274
+2000,Northern Territory,105.89427
+2001,Northern Territory,83.17051
+2002,Northern Territory,79.76301
+2003,Northern Territory,76.20613
+2004,Northern Territory,72.91708
+2005,Northern Territory,64.08561
+2006,Northern Territory,73.77406
+2007,Northern Territory,80.21712
+2008,Northern Territory,75.21123
+2009,Northern Territory,82.60111
+2010,Northern Territory,64.96841
+2011,Northern Territory,56.91775
+2012,Northern Territory,50.76567
+2013,Northern Territory,58.60923
+2014,Northern Territory,52.42656
+2015,Northern Territory,49.80347
+2016,Northern Territory,61.21172
+2017,Northern Territory,66.90968
+1990,Australian Capital Territory,3.61773
+1991,Australian Capital Territory,3.39632
+1992,Australian Capital Territory,3.14273
+1993,Australian Capital Territory,3.27997
+1994,Australian Capital Territory,3.80635
+1995,Australian Capital Territory,3.63321
+1996,Australian Capital Territory,6.04221
+1997,Australian Capital Territory,4.66468
+1998,Australian Capital Territory,4.10032
+1999,Australian Capital Territory,3.68781
+2000,Australian Capital Territory,4.19494
+2001,Australian Capital Territory,3.61227
+2002,Australian Capital Territory,3.86547
+2003,Australian Capital Territory,3.85703
+2004,Australian Capital Territory,4.58287
+2005,Australian Capital Territory,4.15102
+2006,Australian Capital Territory,4.21975
+2007,Australian Capital Territory,3.99284
+2008,Australian Capital Territory,3.76740
+2009,Australian Capital Territory,3.52078
+2010,Australian Capital Territory,3.97806
+2011,Australian Capital Territory,3.72983
+2012,Australian Capital Territory,3.71910
+2013,Australian Capital Territory,3.54172
+2014,Australian Capital Territory,3.60600
+2015,Australian Capital Territory,3.67989
+2016,Australian Capital Territory,3.38286
+2017,Australian Capital Territory,3.17626

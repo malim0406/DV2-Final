@@ -1,0 +1,137 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "How Does Australia's Annual CO₂ Emissions Compare to Other Major Emitters (2022)",
+  "data": {
+    "url": "annual-co2-emissions-per-country.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.Year == 2022"
+    },
+    {
+      "filter": {
+        "field": "Country",
+        "oneOf": [
+          "Australia", "Brazil", "Canada", "China", "France", "Germany",
+          "India", "Indonesia", "Japan", "Mexico", "Russia", "Saudi Arabia",
+          "South Africa", "United Kingdom", "United States"
+        ]
+      }
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "tooltip": true,
+        "cornerRadiusTopLeft": 3,
+        "cornerRadiusTopRight": 3
+      },
+      "encoding": {
+        "x": {
+          "field": "Country",
+          "type": "nominal",
+          "sort": "-y",
+          "axis": {
+            "title": "Country",
+            "labelAngle": -45,
+            "labelFontSize": 16,
+            "titleFontSize": 18,
+            "titleColor": "#f0f0f0",
+            "labelColor": "#f0f0f0"
+          }
+        },
+        "y": {
+          "field": "Annual CO2 emissions",
+          "type": "quantitative",
+          "axis": {
+            "title": "Annual CO₂ Emissions (in million tons)",
+            "grid": true,
+            "gridOpacity": 0.5,
+            "labelFontSize": 16,
+            "titleFontSize": 18,
+            "titleColor": "#f0f0f0",
+            "labelColor": "#f0f0f0",
+            "format": ",.0f"
+          }
+        },
+        "color": {
+          "field": "Country",
+          "type": "nominal",
+          "legend": {
+            "title": "Country",
+            "titleFontSize": 20,
+            "labelFontSize": 16,
+            "titleColor": "#f0f0f0",
+            "labelColor": "#f0f0f0",
+            "orient": "right"
+          },
+          "scale": {
+            "scheme": "category20"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Country",
+            "type": "nominal",
+            "title": "Country:"
+          },
+          {
+            "field": "Annual CO2 emissions",
+            "type": "quantitative",
+            "title": "Total CO₂ Emissions (2022):",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "bottom",
+        "dy": -10,
+        "fontSize": 14,
+        "fontWeight": "bold"
+      },
+      "transform": [
+        {
+          "filter": {
+            "field": "Country",
+            "oneOf": ["Australia", "China", "France"]
+          }
+        }
+      ],
+      "encoding": {
+        "x": {
+          "field": "Country",
+          "type": "nominal"
+        },
+        "y": {
+          "field": "Annual CO2 emissions",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "Annual CO2 emissions",
+          "type": "quantitative",
+          "format": ",.0f"
+        },
+        "color": {
+          "value": "#f0f0f0"
+        }
+      }
+    }
+  ],
+  "title": {
+    "text": "How Does Australia's Annual CO₂ Emissions Compare to Other Major Emitters (2022)",
+    "subtitle": "Highlighting Key Contributions Among China, France, and Australia",
+    "fontSize": 24,
+    "subtitleFontSize": 16,
+    "anchor": "start",
+    "color": "#f0f0f0",
+    "subtitleColor": "#f0f0f0"
+  },
+  "width": 1000,
+  "height": 500,
+  "background": "#3a3a3a"
+}

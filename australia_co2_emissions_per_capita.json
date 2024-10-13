@@ -1,0 +1,157 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 1000,
+  "height": 600,
+  "title": {
+    "text": "Australia CO₂ Emissions per Capita by State (2017)",
+    "subtitle": "This map visualizes CO₂ emissions per capita across different states of Australia in 2017.",
+    "fontSize": 24,
+    "subtitleFontSize": 16,
+    "anchor": "start",
+    "color": "#f0f0f0",
+    "subtitleColor": "#f0f0f0"
+  },
+  "background": "#3a3a3a",
+  "projection": {
+    "type": "mercator"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "ne_10m_admin_1_states_provinces.json",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_10m_admin_1_states_provinces"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.properties.admin == 'Australia' && datum.properties.name != 'Jervis Bay Territory'"
+        },
+        {
+          "calculate": "datum.properties.name",
+          "as": "State"
+        },
+        {
+          "lookup": "State",
+          "from": {
+            "data": {
+              "url": "state-co2e-emissions-per-capita.csv"
+            },
+            "key": "State",
+            "fields": ["CO2 Emissions per Capita", "Year"]
+          }
+        },
+        {
+          "filter": "datum.Year == 2017"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#aaaaaa",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "color": {
+          "field": "CO2 Emissions per Capita",
+          "type": "quantitative",
+          "scale": {
+            "scheme": "blues"
+          },
+          "legend": {
+            "title": "CO₂ Emissions per Capita (Tons)",
+            "titleColor": "#f0f0f0",
+            "labelColor": "#f0f0f0"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "State",
+            "type": "nominal",
+            "title": "State:"
+          },
+          {
+            "field": "CO2 Emissions per Capita",
+            "type": "quantitative",
+            "title": "CO₂ Emissions per Capita (2017):",
+            "format": ".2f"
+          }
+        ],
+        "opacity": {
+          "condition": {
+            "param": "stateFilter",
+            "value": 1
+          },
+          "value": 0.3
+        }
+      },
+      "params": [
+        {
+          "name": "stateFilter",
+          "select": {
+            "type": "point",
+            "fields": ["State"],
+            "empty": false
+          },
+          "bind": {
+            "input": "select",
+            "options": [
+              "All States",
+              "New South Wales",
+              "Victoria",
+              "Queensland",
+              "South Australia",
+              "Western Australia",
+              "Tasmania",
+              "Northern Territory",
+              "Australian Capital Territory"
+            ],
+            "name": "Select a State: "
+          }
+        }
+      ]
+    },
+    {
+      "data": {
+        "url": "ne_10m_admin_1_states_provinces.json",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_10m_admin_1_states_provinces"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.properties.admin == 'Australia' && datum.properties.name != 'Jervis Bay Territory'"
+        },
+        {
+          "calculate": "datum.properties.name",
+          "as": "State"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "dx": 5,
+        "dy": -10,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#f0f0f0"
+      },
+      "encoding": {
+        "text": {
+          "field": "State",
+          "type": "nominal"
+        },
+        "longitude": {
+          "field": "properties.longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "properties.latitude",
+          "type": "quantitative"
+        }
+      }
+    }
+  ]
+}

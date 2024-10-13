@@ -1,0 +1,144 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 400,
+  "title": {
+    "text": "Australia CO₂ Emissions per Capita Over Time by State (1990-2017)",
+    "subtitle": "This chart visualizes the trend of CO₂ emissions per capita across different states of Australia from 1990 to 2017.",
+    "fontSize": 24,
+    "subtitleFontSize": 16,
+    "anchor": "start",
+    "color": "#f0f0f0",
+    "subtitleColor": "#f0f0f0"
+  },
+  "background": "#3a3a3a",
+  "data": {
+    "url": "state-co2e-emissions-per-capita.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "transform": [
+    {
+      "filter": "isValid(datum['CO2 Emissions per Capita']) && isValid(datum['Year'])"
+    },
+    {
+      "filter": "stateFilter == 'All States' || datum.State == stateFilter"
+    }
+  ],
+  "mark": {
+    "type": "line",
+    "point": {
+      "filled": true,
+      "fill": "#f0f0f0",
+      "size": 50
+    },
+    "tooltip": true
+  },
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "temporal",
+      "axis": {
+        "title": "Year",
+        "labelColor": "#f0f0f0",
+        "titleColor": "#f0f0f0"
+      },
+      "scale": {
+        "nice": "year"
+      }
+    },
+    "y": {
+      "field": "CO2 Emissions per Capita",
+      "type": "quantitative",
+      "axis": {
+        "title": "CO₂ Emissions per Capita (Tons)",
+        "labelColor": "#f0f0f0",
+        "titleColor": "#f0f0f0"
+      },
+      "scale": {
+        "zero": false
+      }
+    },
+    "color": {
+      "field": "State",
+      "type": "nominal",
+      "legend": {
+        "title": "State",
+        "titleColor": "#f0f0f0",
+        "labelColor": "#f0f0f0"
+      },
+      "scale": {
+        "scheme": "set3"
+      }
+    },
+    "opacity": {
+      "condition": {
+        "param": "highlight",
+        "value": 1
+      },
+      "value": 0.3
+    },
+    "tooltip": [
+      {
+        "field": "Year",
+        "type": "temporal",
+        "title": "Year:",
+        "format": "%Y"
+      },
+      {
+        "field": "State",
+        "type": "nominal",
+        "title": "State:"
+      },
+      {
+        "field": "CO2 Emissions per Capita",
+        "type": "quantitative",
+        "title": "CO₂ Emissions per Capita (Tons):",
+        "format": ".2f"
+      }
+    ]
+  },
+  "params": [
+    {
+      "name": "highlight",
+      "select": {
+        "type": "point",
+        "fields": ["State"],
+        "on": "mouseover"
+      }
+    },
+    {
+      "name": "stateFilter",
+      "value": "All States",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All States",
+          "Australian Capital Territory",
+          "New South Wales",
+          "Northern Territory",
+          "Queensland",
+          "South Australia",
+          "Tasmania",
+          "Victoria",
+          "Western Australia"
+        ],
+        "name": "Select a State: "
+      }
+    }
+  ],
+  "config": {
+    "style": {
+      "guide-label": {
+        "fontWeight": "bold"
+      },
+      "guide-title": {
+        "fontWeight": "bold"
+      },
+      "tooltip": {
+        "fontWeight": "bold"
+      }
+    }
+  }
+}

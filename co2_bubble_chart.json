@@ -1,0 +1,156 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Cumulative CO₂ Emissions by Selected Countries (Bubble Chart)",
+  "data": {
+    "url": "cumulative-co2-emissions-region.csv"
+  },
+  "transform": [
+    {
+      "filter": {
+        "field": "Country",
+        "oneOf": [
+          "Australia", "Brazil", "Canada", "China", "France", "Germany",
+          "India", "Indonesia", "Japan", "Mexico", "Russia", "Saudi Arabia",
+          "South Africa", "United Kingdom", "United States"
+        ]
+      }
+    },
+    {
+      "calculate": "parseInt(datum.Year)",
+      "as": "Year"
+    },
+    {
+      "filter": {
+        "field": "Year",
+        "oneOf": [1750, 1800, 1850, 1900, 1950, 2000, 2022]
+      }
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "circle",
+        "tooltip": true,
+        "opacity": 0.8
+      },
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal",
+          "title": "Year",
+          "axis": {
+            "labelAngle": 0,
+            "labelFontSize": 12,
+            "titleFontSize": 16,
+            "titleColor": "#f0f0f0",
+            "labelColor": "#f0f0f0"
+          },
+          "scale": {
+            "domain": [1750, 1800, 1850, 1900, 1950, 2000, 2022]
+          }
+        },
+        "y": {
+          "field": "Country",
+          "type": "nominal",
+          "title": "Country",
+          "axis": {
+            "labelFontSize": 12,
+            "titleFontSize": 16,
+            "titleColor": "#f0f0f0",
+            "labelColor": "#f0f0f0"
+          }
+        },
+        "size": {
+          "field": "Cumulative CO2 Emissions",
+          "type": "quantitative",
+          "title": "Cumulative Emissions (tons)",
+          "scale": {
+            "type": "linear",
+            "range": [50, 800]
+          },
+          "legend": {
+            "title": "Cumulative Emissions (tons)",
+            "titleFontSize": 12,
+            "labelFontSize": 12,
+            "titleColor": "#f0f0f0",
+            "labelColor": "#f0f0f0",
+            "orient": "bottom"
+          }
+        },
+        "color": {
+          "field": "Country",
+          "type": "nominal",
+          "legend": {
+            "title": "Country",
+            "orient": "right",
+            "titleFontSize": 16,
+            "labelFontSize": 14,
+            "titleColor": "#f0f0f0",
+            "labelColor": "#f0f0f0"
+          },
+          "scale": {
+            "scheme": "category20"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Year",
+            "type": "ordinal",
+            "title": "Year:"
+          },
+          {
+            "field": "Country",
+            "type": "nominal",
+            "title": "Country:"
+          },
+          {
+            "field": "Cumulative CO2 Emissions",
+            "type": "quantitative",
+            "title": "Cumulative Emissions (tons):",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 5,
+        "dy": -5,
+        "fontSize": 14,
+        "fontWeight": "bold",
+        "color": "#ff7f0e"
+      },
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "Country",
+          "type": "nominal"
+        },
+        "text": {
+          "condition": {
+            "test": "datum.Country === 'United States' && datum.Year === 2022",
+            "value": "Highest cumulative emissions"
+          },
+          "value": ""
+        }
+      }
+    }
+  ],
+  "title": {
+    "text": "Cumulative CO₂ Emissions by Selected Countries, with a Focus on Australia",
+    "subtitle": "A comparison of cumulative emissions from 1750, 1800, 1850, 1900, 1950, 2000, and 2022 at 50-year intervals. Highlighting Australia's position.",
+    "fontSize": 24,
+    "subtitleFontSize": 16,
+    "anchor": "start",
+    "color": "#f0f0f0",
+    "subtitleColor": "#f0f0f0"
+  },
+  "width": 1500,
+  "height": 500,
+  "background": "#3a3a3a"
+}

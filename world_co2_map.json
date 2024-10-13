@@ -1,0 +1,143 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 3000,
+  "height": 1000,
+  "title": {
+    "text": "World CO₂ Emissions in 2022: Largest Polluters Revealed",
+    "subtitle": "This map visualizes CO₂ emissions across different countries in 2022, highlighting the global disparity in emission levels.",
+    "fontSize": 24,
+    "subtitleFontSize": 16,
+    "anchor": "start",
+    "color": "#ffffff",
+    "subtitleColor": "#ffffff"
+  },
+  "background": "#3a3a3a",
+  "projection": {
+    "type": "equalEarth"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "ne_110m_admin_0_countries.json",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_admin_0_countries"
+        }
+      },
+      "transform": [
+        {
+          "calculate": "datum.properties.ADMIN === 'United States of America' ? 'United States' : datum.properties.ADMIN",
+          "as": "Country"
+        },
+        {
+          "calculate": "datum.Country === 'Russian Federation' ? 'Russia' : datum.Country",
+          "as": "Country"
+        },
+        {
+          "calculate": "datum.Country === 'United Kingdom of Great Britain and Northern Ireland' ? 'United Kingdom' : datum.Country",
+          "as": "Country"
+        },
+        {
+          "lookup": "Country",
+          "from": {
+            "data": {
+              "url": "annual-co2-emissions-per-country.csv"
+            },
+            "key": "Country",
+            "fields": ["Annual CO2 emissions", "Year"]
+          }
+        },
+        {
+          "filter": "datum.Year == 2022"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#808080",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "color": {
+          "condition": {
+            "test": "isValid(datum['Annual CO2 emissions'])",
+            "field": "Annual CO2 emissions",
+            "type": "quantitative",
+            "scale": {
+              "scheme": "blues"
+            },
+            "legend": {
+              "title": "Annual CO₂ emissions",
+              "labelColor": "#ffffff",
+              "titleColor": "#ffffff"
+            }
+          },
+          "value": "#d3d3d3"
+        },
+        "tooltip": [
+          {
+            "field": "Country",
+            "type": "nominal",
+            "title": "Country:"
+          },
+          {
+            "field": "Annual CO2 emissions",
+            "type": "quantitative",
+            "title": "Total CO₂ Emissions (2022):",
+            "format": ",.0f",
+            "condition": {
+              "test": "isValid(datum['Annual CO2 emissions'])",
+              "value": "NA"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"Country": "Australia", "Longitude": 133.7751, "Latitude": -25.2744, "Annual CO2 emissions": 392279260},
+          {"Country": "China", "Longitude": 104.1954, "Latitude": 35.8617, "Annual CO2 emissions": 11396777000},
+          {"Country": "United States", "Longitude": -95.7129, "Latitude": 37.0902, "Annual CO2 emissions": 5057036000},
+          {"Country": "India", "Longitude": 78.9629, "Latitude": 20.5937, "Annual CO2 emissions": 2829644300}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "Longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "Latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "Country",
+          "type": "nominal"
+        },
+        "color": {
+          "value": "#ffffff"
+        },
+        "size": {
+          "value": 18
+        },
+        "tooltip": [
+          {
+            "field": "Country",
+            "type": "nominal",
+            "title": "Country:"
+          },
+          {
+            "field": "Annual CO2 emissions",
+            "type": "quantitative",
+            "title": "Total CO₂ Emissions (2022):",
+            "format": ",.0f"
+          }
+        ]
+      }
+    }
+  ]
+}
